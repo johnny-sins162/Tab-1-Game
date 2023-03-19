@@ -1,38 +1,3 @@
---Main script
-local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/johnny-sins162/XSX/main/Ui?token=GHSAT0AAAAAAB7QMWU4QUXCXKMRY5HZLD46ZAWM4IA"))()
-
-
-library.rank = "Dev"
-local Wm = library:Watermark("Break In X | v" .. library.version ..  " | " .. library:GetUsername() .. " | " .. library.rank)
-local FpsWm = Wm:AddWatermark("fps: " .. library.fps)
-coroutine.wrap(function()
-    while wait(.75) do
-        FpsWm:Text("fps: " .. library.fps)
-    end
-end)()
-
-
-local Notif = library:InitNotifications()
-
-for i = 20,0,-1 do 
-    task.wait(0.001)
-    local LoadingXSX = Notif:Notify("Loading...", 3, "information") -- notification, alert, error, success, information
-end 
-
-library.title = "Break In X (Dev Version)"
-
-library:Introduction()
-wait(1)
-local Init = library:Init()
-
-local Tab1 = Init:NewTab("Create Items")
-
-local Section1 = Tab1:NewSection("Consumables")
-
-local Label1 = Tab1:NewLabel("< Create Items >", "center")--"left", "center", "right"
-
-
-
                                 local Selector1 = Tab1:NewSelector("Food giver", "Click Here!", {"Apple", "Chips", "Cookie", "BloxyCola", "Pizza3", "Lollipop"}, function(d)
 game:GetService("ReplicatedStorage"):WaitForChild("RemoteEvents"):WaitForChild("GiveTool"):FireServer(d)
 end)
