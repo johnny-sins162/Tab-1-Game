@@ -1,29 +1,22 @@
-local Tab1 = Init:NewTab("Create Items")
-
-	local Selector1 = Tab1:NewSelector("Food giver", "Click Here!", {"Apple", "Chips", "Cookie", "BloxyCola", "Pizza3", "Lollipop"}, function(d)
-game:GetService("ReplicatedStorage"):WaitForChild("RemoteEvents"):WaitForChild("GiveTool"):FireServer(d)
-end)
-
-
-local Label2 = Tab1:NewLabel("< Create Health Items >", "center")
-	local Selector1 = Tab1:NewSelector("Health Items Giver", "Click Here!", {"Cure", "Medkit"}, function(f)
-game:GetService("ReplicatedStorage"):WaitForChild("RemoteEvents"):WaitForChild("GiveTool"):FireServer(f)
-end)
-
-local Section1 = Tab1:NewSection("Weapons")
-
-local Label3 = Tab1:NewLabel("< Create Basic Weapons >", "center")
-local Selector1 = Tab1:NewSelector("Basic Weapons Giver", "Click Here!", {"Broom", "Breaker", "Bat", "Hammer", "Crowbar", "Pitchfork"}, function(q)
-    game:GetService("ReplicatedStorage"):WaitForChild("RemoteEvents"):WaitForChild("BasementWeapon"):FireServer(true,q)
-end)    
+library.rank = "Dev"
+local Wm = library:Watermark("Break In X | v" .. library.version ..  " | " .. library:GetUsername() .. " | " .. library.rank)
+local FpsWm = Wm:AddWatermark("fps: " .. library.fps)
+coroutine.wrap(function()
+    while wait(.75) do
+        FpsWm:Text("fps: " .. library.fps)
+    end
+end)()
 
 
-    local Label3 = Tab1:NewLabel("< Create Advanced Weapons >", "center")
-    local Selector1 = Tab1:NewSelector("Advanced Weapons Giver", "Click Here!", {"Gun", "SwatGun"}, function(q)
-        game:GetService("ReplicatedStorage"):WaitForChild("RemoteEvents"):WaitForChild("BasementWeapon"):FireServer(true,q)
-end)    
+local Notif = library:InitNotifications()
 
-local Label3 = Tab1:NewLabel("< Misc Items Giver >", "center")
-local Selector1 = Tab1:NewSelector("Advanced Weapons Giver", "Click Here!", {"Planks", "SwatGun"}, function(q)
-    game:GetService("ReplicatedStorage"):WaitForChild("RemoteEvents"):WaitForChild("BasementWeapon"):FireServer(true,q)
-end)    
+for i = 20,0,-1 do 
+    task.wait(0.001)
+    local LoadingXSX = Notif:Notify("Loading...", 3, "information") -- notification, alert, error, success, information
+end 
+
+library.title = "Break In X (Dev Version)"
+
+library:Introduction()
+wait(1)
+local Init = library:Init()
